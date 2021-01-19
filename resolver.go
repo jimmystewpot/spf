@@ -7,14 +7,14 @@ import (
 )
 
 // NewDNSWithResolver initiates a custom net.Resolver instance for using with DNS lookups.
-func NewDNSWithResolver(nameserver string) {
+func NewDNSWithResolver(nameserver string, proto string) {
 	resolver = &net.Resolver{
 		PreferGo: true,
 		Dial: func(ctx context.Context, network, address string) (net.Conn, error) {
 			d := net.Dialer{
 				Timeout: time.Millisecond * time.Duration(5000),
 			}
-			return d.DialContext(ctx, "tcp", net.JoinHostPort(nameserver, "53"))
+			return d.DialContext(ctx, proto, net.JoinHostPort(nameserver, "53"))
 		},
 	}
 
