@@ -42,6 +42,7 @@ var (
 	lookupIP   = net.LookupIP
 	lookupAddr = net.LookupAddr
 	trace      = func(f string, a ...interface{}) {}
+	resolver   *net.Resolver
 )
 
 // The Result of an SPF check. Note the values have meaning, we use them in
