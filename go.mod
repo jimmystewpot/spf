@@ -1,4 +1,4 @@
-module blitiri.com.ar/go/spf
+module github.com/jimmystewpot/spf
 
 go 1.14
 
